@@ -1,0 +1,47 @@
+<div class="user-detail-wrapper" *ngIf="user">
+
+  <button class="back-btn" routerLink="/users">
+    ← Back to Users
+  </button>
+
+  <div class="user-card">
+
+    <!-- HEADER -->
+    <div class="user-header">
+      <img
+        src="https://i.pravatar.cc/120?u={{ user.id }}"
+        alt="User Avatar" />
+
+      <div>
+        <h2>{{ user.name }}</h2>
+        <p class="username">@{{ user.username }}</p>
+      </div>
+    </div>
+
+    <!-- DETAILS GRID -->
+    <div class="details-grid">
+
+      <div class="detail-item">
+        <span>Email</span>
+        <p>{{ user.email }}</p>
+      </div>
+
+      <div class="detail-item">
+        <span>Phone</span>
+        <p>{{ user.phone }}</p>
+      </div>
+
+      <div class="detail-item">
+        <span>Company</span>
+        <p>{{ user.company.name }}</p>
+      </div>
+
+      <div class="detail-item">
+        <span>City</span>
+        <p>{{ user.address.city }}</p>
+      </div>
+
+    </div>
+
+  </div>
+</div>

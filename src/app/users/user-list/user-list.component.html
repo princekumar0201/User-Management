@@ -1,0 +1,42 @@
+<div class="actions">
+
+  <div class="search-box">
+    <span class="search-icon">🔍</span>
+    <input
+      type="text"
+      placeholder="Search users"
+      [(ngModel)]="searchText"
+      (input)="filterUsers()" />
+  </div>
+
+  <div class="filters">
+    <button
+      [class.active]="selectedStatus === 'All'"
+      (click)="selectedStatus='All'; filterUsers()">
+      All
+    </button>
+
+    <button
+      [class.active]="selectedStatus === 'Active'"
+      (click)="selectedStatus='Active'; filterUsers()">
+      Active
+    </button>
+
+    <button
+      [class.active]="selectedStatus === 'Inactive'"
+      (click)="selectedStatus='Inactive'; filterUsers()">
+      Inactive
+    </button>
+  </div>
+
+</div>
+
+<div *ngIf="loading" class="loading">Loading users...</div>
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<div class="grid">
+  <app-user-card
+    *ngFor="let user of filteredUsers"
+    [user]="user">
+  </app-user-card>
+</div>
